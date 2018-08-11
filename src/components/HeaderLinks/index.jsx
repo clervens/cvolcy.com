@@ -29,14 +29,6 @@ function HeaderLinks({ ...props }) {
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
-          {/* <Button
-            color="transparent"
-            href="https://www.instagram.com/CreativeTimOfficial"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
-          </Button> */}
           <IconButton
             href={"https://www.linkedin.com/in/clervens-volcy-5522a670"}
             target="_blank"

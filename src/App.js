@@ -1,30 +1,23 @@
 import React, { Component } from 'react';
+import { Router, Route, Switch } from "react-router";
+import { createBrowserHistory } from "history";
 
-import Avatar from '@material-ui/core/Avatar';
+import LandingPage from "./views/LandingPage";
 
-import Header from "./components/Header";
-import HeaderLinks from "./components/HeaderLinks";
 import './App.css';
 
 class App extends Component {
   render() {
+    let hist = createBrowserHistory();
     return (
-      <Header
-        color="transparent"
-        brand="Clervens Volcy"
-        rightLinks={<HeaderLinks />}
-        leftLinks={this.getHeaderLinks()}
-        fixed
-        changeColorOnScroll={{
-          height: 400,
-          color: "primary"
-        }} />
-    );
-  }
-
-  getHeaderLinks() {
-    return (
-      <Avatar alt="Clervens Volcy" src="/images/logo-100.png" />
+      <Router history={hist}>
+        <Switch>
+          {/* {indexRoutes.map((prop, key) => {
+            return <Route path={prop.path} key={key} component={prop.component} />;
+          })} */}
+          <Route path="/" key={0} component={LandingPage} />
+        </Switch>
+      </Router>
     );
   }
 }
