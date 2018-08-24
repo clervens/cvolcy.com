@@ -16,7 +16,7 @@ class App extends Component {
           {/* {indexRoutes.map((prop, key) => {
             return <Route path={prop.path} key={key} component={prop.component} />;
           })} */}
-          <Route path="/projects" key={0} component={ProjectsPage} />
+          <Route path="/projects/:project?" key={0} component={ProjectsPage} />
           <Route path="/" key={1} component={LandingPage} />
         </Switch>
       </Router>

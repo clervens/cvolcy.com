@@ -14,7 +14,7 @@ import GridContainer from "../../components/Grid/GridContainer";
 import GridItem from "../../components/Grid/GridItem";
 import Footer from "../../components/Footer";
 
-import MarkdownProject from "../../projects/markdown.md";
+import Projects, { getProject } from "../../projects";
 
 import landingPageStyle from "./styles";
 
@@ -26,10 +26,17 @@ class ProjectsPage extends Component {
   }
 
   async componentWillMount() {
-    let textStream = await fetch(MarkdownProject);
+    const { project } = this.props.match.params;
+
+    let data = !!project ? getProject(project) : Projects[0];
+    if (!!data) {
+      data = Projects[0];
+    }
+
+    let textStream = await fetch(data.file);
     let text = await textStream.text();
 
-    this.setState({ project: text, title: "Markdown" });
+    this.setState({ project: text, title: project.charAt(0).toUpperCase() + project.slice(1) });
   }
 
   render() {
@@ -50,20 +57,13 @@ class ProjectsPage extends Component {
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>Your Story Starts With Us.</h1>
-                <h4>
-                  Every landing page needs a small description after the big
-                  bold title, that's why we added this text here. Add here all
-                  the information that can make you or your product create the
-                  first impression.
-                </h4>
+                <h1 className={classes.title}>{this.state.title}</h1>
               </GridItem>
             </GridContainer>
           </div>
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.markdown}>
-            <h2>{this.state.title}</h2>
             <Markdown source={this.state.project} options={{html: true}} />
           </div>
         </div>
