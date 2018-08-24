@@ -5,6 +5,9 @@ import { createBrowserHistory } from "history";
 import LandingPage from "./views/LandingPage";
 import ProjectsPage from "./views/ProjectsPage";
 
+//translations
+import { translate } from 'react-i18next';
+
 import './App.css';
 
 class App extends Component {
@@ -24,4 +27,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default translate("common")(App);

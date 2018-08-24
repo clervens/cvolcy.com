@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import withStyles from "@material-ui/core/styles/withStyles";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+//translations
+import { translate } from 'react-i18next';
 
 import Avatar from '@material-ui/core/Avatar';
 
@@ -19,7 +21,7 @@ import landingPageStyle from "./styles";
 
 class LandingPage extends Component {
   render() {
-    const { classes } = this.props;
+    const { classes, t } = this.props;
     return (
       <div>
         <Header
@@ -64,4 +66,4 @@ class LandingPage extends Component {
   }
 }
 
-export default withStyles(landingPageStyle)(LandingPage);
+export default translate("LandingPage")(withStyles(landingPageStyle)(LandingPage));

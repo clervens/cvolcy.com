@@ -4,5 +4,11 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { I18nextProvider } from 'react-i18next';
+import i18n from './config/i18n';
+
+ReactDOM.render(
+    <I18nextProvider i18n={i18n}>
+        <App />
+    </I18nextProvider>, document.getElementById('root'));
 registerServiceWorker();
