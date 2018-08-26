@@ -38,10 +38,8 @@ class LandingPage extends Component {
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>I'm Clervens Volcy, a programmer from Montréal</h1>
-                <h4>
-                  Software Engineer bachelor with a keen interest in solving problems, Web technologies, machine learning and artificial intelligence.
-                </h4>
+                <h1 className={classes.title}>{t('title')}</h1>
+                <h4>{t('subtitle')}</h4>
               </GridItem>
             </GridContainer>
           </div>
