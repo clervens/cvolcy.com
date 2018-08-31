@@ -1,0 +1,7 @@
+extends ./layout
+prepend title
+  | [404] 
+block content
+  h1 404 - Page introuvable!
+  h3 '#{url}'
+  p La page que vous avez demandée n’a pas été trouvée. Il se peut que le lien que vous avez utilisé soit rompu ou que vous ayez tapé l’adresse (URL) incorrectement. 
