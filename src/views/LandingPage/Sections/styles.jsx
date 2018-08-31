@@ -14,6 +14,9 @@ const sectionStyle = {
   },
   description: {
     color: "#999"
+  },
+  videoIframe: {
+    width: "100%"
   }
 };
 
