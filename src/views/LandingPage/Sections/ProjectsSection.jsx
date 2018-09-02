@@ -9,37 +9,32 @@ import sectionStyles from "./styles";
 
 class ProductSection extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes, t } = this.props;
     return (
       <div className={classes.section}>
-        <GridContainer justify="center">
-          <GridItem xs={12} sm={12} md={8}>
-            <h2 className={classes.title}>Let's talk product</h2>
-            <h5 className={classes.description}>
-              This is the paragraph where you can write more details about your
-              product. Keep you user engaged by providing meaningful
-              information. Remember that by this time, the user is curious,
-              otherwise he wouldn't scroll to get here. Add a button if you want
-              the user to see more.
-            </h5>
+        <GridContainer>
+          <GridItem xs={12} sm={12} md={4} className={classes.description}>
+            <h2 className={classes.title}>What’s new?</h2>
+            ...
+          </GridItem>
+          <GridItem xs={12} sm={12} md={4} className={classes.description}>
+            <h2 className={classes.title}>Reading lists</h2>
+            ...
+          </GridItem>
+          <GridItem xs={12} sm={12} md={4} className={classes.description}>
+            <h2 className={classes.title}>Video of the day</h2>
+            <iframe 
+              className={classes.videoIframe}
+              src="https://www.youtube.com/embed/Fa4cRMaTDUI"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
           </GridItem>
         </GridContainer>
-        <div>
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={4} className={classes.description}>
-                Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.
-            </GridItem>
-            <GridItem xs={12} sm={12} md={4} className={classes.description}>
-                Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.
-            </GridItem>
-            <GridItem xs={12} sm={12} md={4} className={classes.description}>
-                Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.
-            </GridItem>
-          </GridContainer>
-        </div>
       </div>
     );
   }
 }
 
-export default withStyles(sectionStyles)(ProductSection);
+export default translate("LandingPage")(withStyles(sectionStyles)(ProductSection));
