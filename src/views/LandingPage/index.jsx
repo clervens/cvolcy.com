@@ -6,10 +6,7 @@ import classNames from "classnames";
 //translations
 import { translate } from 'react-i18next';
 
-import Avatar from '@material-ui/core/Avatar';
-
-import Header from "../../components/Header";
-import HeaderLinks from "../../components/HeaderLinks";
+import Navigation from '../Shared/Navigation';
 import Parallax from "../../components/Parallax";
 import GridContainer from "../../components/Grid/GridContainer";
 import GridItem from "../../components/Grid/GridItem";
@@ -24,16 +21,7 @@ class LandingPage extends Component {
     const { classes, t } = this.props;
     return (
       <div>
-        <Header
-          color="transparent"
-          brand="Clervens Volcy"
-          rightLinks={<HeaderLinks />}
-          leftLinks={this.getHeaderLinks()}
-          fixed
-          changeColorOnScroll={{
-            height: 400,
-            color: "primary"
-          }} />
+        <Navigation />     
         <Parallax filter image="/images/filters/image1.jpg">
           <div className={classes.container}>
             <GridContainer>
@@ -51,12 +39,6 @@ class LandingPage extends Component {
         </div>
         <Footer />
       </div>
-    );
-  }
-
-  getHeaderLinks() {
-    return (
-      <Avatar alt="Clervens Volcy" src="/images/logo-100.png" />
     );
   }
 }
