@@ -1,4 +1,6 @@
 import React from "react";
+//translations
+import { translate } from 'react-i18next';
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // core components
