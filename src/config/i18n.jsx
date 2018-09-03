@@ -4,6 +4,7 @@ import LngDetector from 'i18next-browser-languagedetector';
 
 import LandingPageEN from '../translations/en/LandingPage.json';
 import LandingPageFR from '../translations/fr/LandingPage.json';
+import CommonFR from '../translations/fr/common.json';
  
 i18next 
     .use(reactI18nextModule)
@@ -15,6 +16,7 @@ i18next
                 LandingPage: LandingPageEN
             },
             fr: {
+                common: CommonFR,
                 LandingPage: LandingPageFR
             },
         },
