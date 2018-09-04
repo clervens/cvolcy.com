@@ -5,3 +5,4 @@ static/js
 npm-debug.log
 .vscode/*
 nodemon.json
+.env
