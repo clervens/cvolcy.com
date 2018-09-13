@@ -17,6 +17,12 @@ const sectionStyle = {
   },
   videoIframe: {
     width: "100%"
+  },
+  bookList: {
+    padding: 0
+  },
+  bookListItem: {
+    listStyle: "none"
   }
 };
 
