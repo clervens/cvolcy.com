@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
 const mongoose = require('mongoose');
 
 dotenv.config();
@@ -17,6 +18,7 @@ mongoose.Promise = global.Promise;
 require('./models/models.js');
 
 // App Configuration
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('common'));
