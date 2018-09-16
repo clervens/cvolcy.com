@@ -11,6 +11,10 @@ import { translate } from 'react-i18next';
 import './App.css';
 
 class App extends Component {
+  componentDidMount() {
+    document.title = "Clervens Volcy";
+  }
+
   render() {
     let hist = createBrowserHistory();
     return (
