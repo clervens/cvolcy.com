@@ -32,6 +32,7 @@ app.get("/", (req, res, next) => {
 
 app.use("/project", require("./routers/projects"));
 app.use("/books", require("./routers/books"));
+app.use("/videos", require("./routers/videos"));
 
 app.use(function(req, res, next){
   res.status(404);
