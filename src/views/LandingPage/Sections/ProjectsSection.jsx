@@ -50,12 +50,13 @@ class ProductSection extends React.Component {
           </GridItem>
           <GridItem xs={12} sm={12} md={4} className={classes.description}>
             <h2 className={classes.title}>{t("Video of the day")}</h2>
-            <iframe 
+            <iframe
+              title={t("Video of the day")}
               className={classes.videoIframe}
               src="https://www.youtube.com/embed/Fa4cRMaTDUI"
-              frameborder="0"
+              frameBorder="0"
               allow="autoplay; encrypted-media"
-              allowfullscreen>
+              allowFullScreen>
             </iframe>
           </GridItem>
         </GridContainer>

@@ -29,7 +29,6 @@ function Footer({ ...props }) {
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="#"
                 className={classes.block}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -39,7 +38,6 @@ function Footer({ ...props }) {
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="#"
                 className={classes.block}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -50,11 +48,10 @@ function Footer({ ...props }) {
           </List>
         </div>
         <div className={classes.right}>
-          &copy; {1900 + new Date().getYear()}, &nbsp;
+          &copy; {new Date().getFullYear()},&nbsp;
           <Trans i18nKey="made with">
           made with <Favorite className={classes.icon} /> by 
           <a
-            href="#"
             className={aClasses}
             target="_blank"
             rel="noopener noreferrer"

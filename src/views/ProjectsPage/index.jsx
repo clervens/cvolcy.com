@@ -5,8 +5,6 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
 import Markdown from "react-remarkable";
 
-import Avatar from '@material-ui/core/Avatar';
-
 import Navigation from '../Shared/Navigation';
 import Parallax from "../../components/Parallax";
 import GridContainer from "../../components/Grid/GridContainer";
