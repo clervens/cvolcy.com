@@ -7,6 +7,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // core components
 import GridContainer from "../../../components/Grid/GridContainer";
 import GridItem from "../../../components/Grid/GridItem";
+import CircularProgress from '@material-ui/core/CircularProgress';
 // API
 import APIConfig from "../../../config/api";
 
@@ -17,16 +18,27 @@ class ProductSection extends React.Component {
     super(props);
     this.state = {
       books: [],
+      videoOfTheDay: null,
       locale: i18next.language.substr(0, 2)
     }
   }
   
   componentDidMount() {
+    const locale = this.state.locale;
     fetch(`${APIConfig.baseUrl}books/reading-list`)
       .then(res => res.json())
       .then((result) => {
         this.setState({
-          books: result.map((x) => { return {_id: x._id, ...x[this.state.locale] }; })
+          books: result.map((x) => { return {_id: x._id, ...x[locale] }; })
+        });
+      });
+    fetch(`${APIConfig.baseUrl}videos/day`)
+      .then(res => res.json())
+      .then(result => Promise.resolve(result.randomVideoOfTheDay))
+      .then(result => {
+        console.log(result);
+        this.setState({
+          videoOfTheDay: { _id: result._id, ...result[locale] }
         });
       });
   }
@@ -43,21 +55,30 @@ class ProductSection extends React.Component {
           <GridItem xs={12} sm={12} md={4} className={classes.description}>
             <h2 className={classes.title}>{t("Reading lists")}</h2>
             <ul className={classes.bookList}>
-            {this.state.books.map(book => {
-              return <li className={classes.bookListItem} key={book._id}>{book.title}</li>
-            })}
+            { this.state.books.length > 0 ? (
+              this.state.books.map(book => {
+                return <li className={classes.bookListItem} key={book._id}>{book.title}</li>
+              })
+            ) : (
+              <CircularProgress />
+            )}
             </ul>
           </GridItem>
           <GridItem xs={12} sm={12} md={4} className={classes.description}>
             <h2 className={classes.title}>{t("Video of the day")}</h2>
-            <iframe
-              title={t("Video of the day")}
-              className={classes.videoIframe}
-              src="https://www.youtube.com/embed/Fa4cRMaTDUI"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen>
-            </iframe>
+            {this.state.videoOfTheDay != null ? (
+              <iframe
+                title={t("Video of the day")}
+                className={classes.videoIframe}
+                src={this.state.videoOfTheDay.url}
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen>
+              </iframe>
+              ) : (
+                <CircularProgress />
+              )
+            }
           </GridItem>
         </GridContainer>
       </div>
