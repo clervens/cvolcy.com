@@ -20,7 +20,7 @@ require('./models/models.js');
 // App Configuration
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('common'));
 app.use(express.static(path.resolve(__dirname, 'static')));
 app.set('view engine', 'pug');
