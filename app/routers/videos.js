@@ -11,7 +11,7 @@ router.get("/day", async (req, res) => {
 
     const Videos = mongoose.model("Videos");
     const count = await Videos.count();
-    const random = Math.round(Math.sin((new Date()).getDate()) * count);
+    const random = Math.abs(Math.round(Math.sin((new Date()).getDate()) * count));
 
     let randomVideoOfTheDay = await Videos.findOne().skip(random);
     if (typeof locale !== 'undefined') {
