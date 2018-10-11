@@ -43,7 +43,7 @@ class ProductSection extends React.Component {
       .then(result => {
         console.log(result);
         this.setState({
-          videoOfTheDay: { _id: result._id, ...result[locale] }
+          videoOfTheDay: result
         });
       });
   }
