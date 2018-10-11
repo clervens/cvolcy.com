@@ -25,14 +25,19 @@ class ProductSection extends React.Component {
   
   componentDidMount() {
     const locale = this.state.locale;
-    fetch(`${APIConfig.baseUrl}books/reading-list`)
+    fetch(APIConfig.get('books/reading-list'))
       .then(res => res.json())
       .then((result) => {
         this.setState({
           books: result.map((x) => { return {_id: x._id, ...x[locale] }; })
         });
       });
-    fetch(`${APIConfig.baseUrl}videos/day`)
+
+    let videoURL = APIConfig.get('videos/day'),
+      videoParams = {lang: this.state.locale};
+    Object.keys(videoParams)
+      .forEach(key => videoURL.searchParams.append(key, videoParams[key]));
+    fetch(videoURL)
       .then(res => res.json())
       .then(result => Promise.resolve(result.randomVideoOfTheDay))
       .then(result => {
