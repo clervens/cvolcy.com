@@ -10,8 +10,8 @@ router.get("/day", async (req, res) => {
     const locale = params.lang;
 
     const Videos = mongoose.model("Videos");
-    const count = await Videos.count();
-    const random = Math.abs(Math.round(Math.sin((new Date()).getDate()) * count));
+    const count = await Videos.countDocuments();
+    const random = Math.abs(Math.round(Math.sin((new Date()).getDate()) * (count - 1)));
 
     let randomVideoOfTheDay = await Videos.findOne().skip(random);
     if (typeof locale !== 'undefined') {
